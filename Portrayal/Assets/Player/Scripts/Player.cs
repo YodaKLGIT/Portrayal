@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         // update the camera position to follow the player
-        playerCamera.UpdatePosition(
+        playerCamera.UpdatePosition
+        (
             playerCharacter.GetCameraTarget(),
             playerCharacter.GetVelocity(),
             playerCharacter.IsGrounded()
