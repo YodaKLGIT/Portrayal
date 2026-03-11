@@ -13,16 +13,23 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
 
-    [Header("Photo Fade Effect")]
+    [Header("Photo Animation Effect")]
     [SerializeField] private Animator fadeAnimation;
+    [SerializeField] private Animator pictureDownAnimation;
 
     [Header("Photo Audio")]
     [SerializeField] private AudioSource cameraShutterSound;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
+    private Vector3 photoFrameStartLocalPosition;
 
-    void Update()
+    private void Awake()
+    {
+        photoFrameStartLocalPosition = photoFrame.transform.localPosition;
+    }
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,7 +44,7 @@ public class PhotoCapture : MonoBehaviour
         }
     }
 
-    IEnumerator CapturePhoto()
+    private IEnumerator CapturePhoto()
     {
         viewingPhoto = true;
 
@@ -50,7 +57,6 @@ public class PhotoCapture : MonoBehaviour
         // Create texture to store the photo
         screenCapture = new Texture2D(photoWidth, photoHeight, TextureFormat.RGB24, false);
 
-        // Render the photo camera
         photoCamera.Render();
 
         RenderTexture currentRT = RenderTexture.active;
@@ -69,8 +75,10 @@ public class PhotoCapture : MonoBehaviour
         cameraShutterSound.Play();
     }
 
-    void ShowPhoto()
+    private void ShowPhoto()
     {
+        photoFrame.transform.localPosition = photoFrameStartLocalPosition;
+
         Sprite photoSprite = Sprite.Create(
             screenCapture,
             new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height),
@@ -81,12 +89,31 @@ public class PhotoCapture : MonoBehaviour
         photoDisplayArea.sprite = photoSprite;
 
         photoFrame.SetActive(true);
-        fadeAnimation.Play("PhotoFade");
+        fadeAnimation.Play("PhotoFade", 0, 0f);
     }
 
-    void RemovePhoto()
+    private void RemovePhoto()
+    {
+        StartCoroutine(Seq());
+    }
+
+    private IEnumerator Seq()
+    {
+        yield return StartCoroutine(PlayPhotoAnimation());
+        yield return new WaitForSeconds(1f); // wait for the animation to finish
+        yield return StartCoroutine(ClearPhoto());
+    }
+
+    private IEnumerator PlayPhotoAnimation()
+    {
+        pictureDownAnimation.Play("PictureDown", 0, 0f);
+        yield break;
+    }
+
+    private IEnumerator ClearPhoto()
     {
         viewingPhoto = false;
         photoFrame.SetActive(false);
+        yield break;
     }
 }
