@@ -8,10 +8,10 @@ public class Camera_Switcher : MonoBehaviour
     
     void Start()
     {
-        TopDown.enabled = false;
+        FirstPerson.enabled = false;
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
