@@ -7,16 +7,16 @@ public class Targetchange : MonoBehaviour
 
 
     public GameObject Fox;
-    
+
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
-    
+
     }
 
 
@@ -24,7 +24,7 @@ public class Targetchange : MonoBehaviour
     {
         Vector3 teleport = transform.position;
         List<int> numbers = new List<int>();
-        
+        numbers.Add(0);
         numbers.Add(1);
         numbers.Add(2);
         numbers.Add(3);
@@ -32,16 +32,23 @@ public class Targetchange : MonoBehaviour
         for (int i = 0; i < numbers.Count; i++)
         {
             int number = numbers[i];
-            if (number == 1)
+            if (number == 2)
+            {
+                teleport.x = -11;
+                teleport.y = 4;
+            }
+            if (number == 3)
             {
                 teleport.x = 0;
+                teleport.y = 9;
                 teleport.z = 14;
             }
+            
+
+            transform.position = teleport;
+            //make a list for all teleports
+            //make it easy to change the destinations
         }
 
-        transform.position = teleport;
-        //make a list for all teleports
-        //make it easy to change the destinations
     }
-    
 }

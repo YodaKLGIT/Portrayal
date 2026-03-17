@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     private NavMeshAgent agent;
+    public GameObject FoxTarget;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -12,6 +13,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(GameObject.FindGameObjectWithTag("foxTarget").transform.position);
+        agent.SetDestination(FoxTarget.transform.position);
     }
 }

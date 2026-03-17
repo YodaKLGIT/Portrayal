@@ -661,7 +661,10 @@ MonoBehaviour:
   photoDisplayArea: {fileID: 231931872}
   photoFrame: {fileID: 1770655514}
   fadeAnimation: {fileID: 231931875}
+  pictureDownAnimation: {fileID: 0}
   cameraShutterSound: {fileID: 1313948272}
+  spriteList: []
+  GalleryList: []
 --- !u!1 &272602331
 GameObject:
   m_ObjectHideFlags: 0
@@ -7647,6 +7650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8e9af0cb3658d41ba29c9e1370089a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FoxTarget: {fileID: 272602331}
 --- !u!54 &1746933415
 Rigidbody:
   m_ObjectHideFlags: 0
