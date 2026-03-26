@@ -6,7 +6,10 @@ public class Targetchange : MonoBehaviour
 {
 
 
-    public GameObject Fox;
+    public GameObject NPC;
+    public int AmountOfAreas;
+    public List<Vector3> locations;
+    public int currentLocation = 0;
 
     void Start()
     {
@@ -20,35 +23,53 @@ public class Targetchange : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter(UnityEngine.Collider Fox)
+    public void OnTriggerEnter(UnityEngine.Collider NPC)
     {
         Vector3 teleport = transform.position;
-        List<int> numbers = new List<int>();
-        numbers.Add(0);
-        numbers.Add(1);
-        numbers.Add(2);
-        numbers.Add(3);
-        Debug.Log("Fox has hit the trigger");
-        for (int i = 0; i < numbers.Count; i++)
-        {
-            int number = numbers[i];
-            if (number == 2)
-            {
-                teleport.x = -11;
-                teleport.y = 4;
-            }
-            if (number == 3)
-            {
-                teleport.x = 0;
-                teleport.y = 9;
-                teleport.z = 14;
-            }
-            
 
-            transform.position = teleport;
-            //make a list for all teleports
-            //make it easy to change the destinations
-        }
+        teleport = locations[currentLocation];
+        currentLocation++;
+        currentLocation = (currentLocation++) % AmountOfAreas;
+
+
+        Debug.Log("Fox has hit the trigger");
+
+        //if(currentLocation == 0)
+        //{
+        //    teleport.x = 12;
+        //    teleport.y = 10;
+        //    teleport.z = -8;
+        //}
+
+        //if (currentLocation == 1)
+        //{
+        //    teleport.x = 0;
+        //    teleport.y = 9;
+        //    teleport.z = 14;
+
+
+        //}
+        //if (currentLocation == 2)
+        //{
+        //    teleport.x = -11;
+        //    teleport.y = 4;
+        //    teleport.z = 14;
+
+
+        //}
+
+
+        transform.position = teleport;
+        //make a list for all teleports
+        //make it easy to change the destinations
+
 
     }
+
+    public void test(int GiveAreaNumber)
+    {
+        GiveAreaNumber = AmountOfAreas;
+        return;
+    }
 }
+
