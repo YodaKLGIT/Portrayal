@@ -15,4 +15,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         agent.SetDestination(FoxTarget.transform.position);
     }
+
+    //if(fox has been foto taken)
+    //{
+    //  FoxCaught();
+    //}
 }
