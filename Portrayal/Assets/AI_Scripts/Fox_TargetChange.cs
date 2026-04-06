@@ -1,12 +1,9 @@
-using KinematicCharacterController.Examples;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Targetchange : MonoBehaviour
+public class Fox_TargetChange : MonoBehaviour
 {
-
-
-    public GameObject NPC;
+    
     public int AmountOfAreas;
     public List<Vector3> locations;
     public int currentLocation = 0;
@@ -23,7 +20,7 @@ public class Targetchange : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter(UnityEngine.Collider NPC)
+    public void FoxCaught()
     {
         Vector3 teleport = transform.position;
 
@@ -31,12 +28,11 @@ public class Targetchange : MonoBehaviour
         currentLocation++;
         currentLocation = (currentLocation++) % AmountOfAreas;
 
+
+        Debug.Log("Fox has hit the trigger");
+
         transform.position = teleport;
-        
-
-
+       //delete the old so it doesnt want to go back
+       //make it Amountoflocations - 1
     }
-
-   
 }
-

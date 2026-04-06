@@ -5,7 +5,7 @@ public class NPC_TEST : Targetchange
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        test(2);
+        
     }
 
     // Update is called once per frame
