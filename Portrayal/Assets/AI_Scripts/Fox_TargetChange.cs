@@ -7,6 +7,9 @@ public class Fox_TargetChange : MonoBehaviour
     public int AmountOfAreas;
     public List<Vector3> locations;
     public int currentLocation = 0;
+    public GameObject Fox;
+    [SerializeField] public float Interval = 15;
+    float timer;
 
     void Start()
     {
@@ -16,12 +19,12 @@ public class Fox_TargetChange : MonoBehaviour
 
     void Update()
     {
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        FoxCaught();
+        timer += Time.deltaTime;
+        if (timer >= Interval)
+        {
+            FoxCaught();
+            timer -= Interval;
+        }
     }
     public void FoxCaught()
     {

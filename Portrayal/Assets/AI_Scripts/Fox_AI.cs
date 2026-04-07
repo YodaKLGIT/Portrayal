@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class NewMonoBehaviourScript : Fox_TargetChange
 {
     private NavMeshAgent agent;
     public GameObject FoxTarget;
@@ -15,6 +15,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         agent.SetDestination(FoxTarget.transform.position);
     }
+
 
     //if(fox has been foto taken)
     //{
