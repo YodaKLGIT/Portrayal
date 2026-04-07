@@ -19,7 +19,10 @@ public class Fox_TargetChange : MonoBehaviour
 
     }
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        FoxCaught();
+    }
     public void FoxCaught()
     {
         Vector3 teleport = transform.position;
