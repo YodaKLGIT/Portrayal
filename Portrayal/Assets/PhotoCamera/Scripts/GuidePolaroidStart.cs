@@ -13,7 +13,7 @@ public class GuidePolaroidStart : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Detects left mouse button click
+        if (Input.GetKeyDown(KeyCode.E))
         {
             PolaroidImage.SetActive(false);
             Canvas.SetActive(false);
