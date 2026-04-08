@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PhotoCapture : MonoBehaviour
@@ -39,6 +41,8 @@ public class PhotoCapture : MonoBehaviour
     private bool isAnimating = false;
     private Vector3 photoFrameStartLocalPosition;
 
+    private int pictureTillEnding = 0;
+
     private List<Photographable> currentValidTargets = new List<Photographable>();
 
     private void Awake()
@@ -56,6 +60,7 @@ public class PhotoCapture : MonoBehaviour
         }
 
         UpdateFocusCheck();
+        SendToEndScreen();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -113,6 +118,7 @@ public class PhotoCapture : MonoBehaviour
                 {
                     obj.Capture();
                     capturedNewObject = true;
+                    pictureTillEnding++;
                 }
             }
         }
@@ -262,5 +268,20 @@ public class PhotoCapture : MonoBehaviour
         photoFrame.SetActive(false);
 
         isAnimating = false;
+    }
+
+    public void SendToEndScreen()
+    {
+        if (pictureTillEnding == 6)
+        {
+            StartCoroutine(SceneSwitch());
+        }
+    }
+
+    private IEnumerator SceneSwitch()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("EindScene");
+        yield return null;
     }
 }
