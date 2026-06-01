@@ -10,6 +10,9 @@ public class Photographable : MonoBehaviour
     public float requiredCenterAccuracy = 0.2f;
     public float maxDistance = 25f;
 
+    [Header("Gallery")]
+    public bool saveToGallery = true;
+
     [Header("Events")]
     public UnityEvent onCaptured;
 
@@ -28,5 +31,10 @@ public class Photographable : MonoBehaviour
     public bool IsCaptured()
     {
         return alreadyCaptured;
+    }
+
+    public bool ShouldSaveToGallery()
+    {
+        return saveToGallery;
     }
 }

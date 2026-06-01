@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,6 +41,7 @@ public class PhotoCapture : MonoBehaviour
     private Vector3 photoFrameStartLocalPosition;
 
     private int pictureTillEnding = 0;
+    private bool endingTriggered;
 
     private List<Photographable> currentValidTargets = new List<Photographable>();
 
@@ -60,7 +60,6 @@ public class PhotoCapture : MonoBehaviour
         }
 
         UpdateFocusCheck();
-        SendToEndScreen();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -108,23 +107,36 @@ public class PhotoCapture : MonoBehaviour
         Destroy(rt);
 
         bool capturedNewObject = false;
+        bool savePhotoToGallery = false;
 
         if (currentValidTargets.Count > 0)
         {
             foreach (var obj in currentValidTargets)
             {
-                // ONLY capture if not already captured
                 if (!obj.IsCaptured())
                 {
                     obj.Capture();
+
                     capturedNewObject = true;
-                    pictureTillEnding++;
+
+                    if (obj.ShouldSaveToGallery())
+                    {
+                        savePhotoToGallery = true;
+                        pictureTillEnding++;
+
+                        if (!endingTriggered && pictureTillEnding >= 6)
+                        {
+                            endingTriggered = true;
+                            StartCoroutine(SceneSwitch());
+                        }
+                    }
                 }
             }
         }
 
-        // ALWAYS show photo, but only save if NEW object
-        ShowPhoto(capturedNewObject);
+        // Always show the photo
+        // Only save it if at least one captured object wants gallery storage
+        ShowPhoto(savePhotoToGallery);
 
         if (!capturedNewObject)
         {
@@ -268,14 +280,6 @@ public class PhotoCapture : MonoBehaviour
         photoFrame.SetActive(false);
 
         isAnimating = false;
-    }
-
-    public void SendToEndScreen()
-    {
-        if (pictureTillEnding == 6)
-        {
-            StartCoroutine(SceneSwitch());
-        }
     }
 
     private IEnumerator SceneSwitch()
