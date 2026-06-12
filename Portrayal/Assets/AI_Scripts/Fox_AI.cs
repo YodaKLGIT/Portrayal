@@ -17,8 +17,5 @@ public class NewMonoBehaviourScript : Fox_TargetChange
     }
 
 
-    //if(fox has been foto taken)
-    //{
-    //  FoxCaught();
-    //}
+    //State Macgine needed?
 }
