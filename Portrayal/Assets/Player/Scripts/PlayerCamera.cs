@@ -28,6 +28,7 @@ public class PlayerCamera : MonoBehaviour
         Vector3 euler = target.eulerAngles;
         _yaw = euler.y;
         _pitch = 0f;
+        transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
     }
 
     public void UpdateRotation(CameraInput input)
