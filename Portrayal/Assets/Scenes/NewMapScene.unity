@@ -8314,7 +8314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.2
+      value: -19.56
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8322,11 +8322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.09842994
+      value: 0.72006816
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8334,7 +8334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.995144
+      value: 0.69390345
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalRotation.z
@@ -8346,7 +8346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -191.298
+      value: 87.88
       objectReference: {fileID: 0}
     - target: {fileID: 7462876579346619579, guid: 765549a9476acbf4dbdd3e825e091586, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -11815,8 +11815,8 @@ Terrain:
   m_TreeMaximumFullLODCount: 50
   m_DetailObjectDistance: 80
   m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
+  m_HeightmapPixelError: 100
+  m_SplatMapDistance: 227
   m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
