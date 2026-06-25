@@ -80,12 +80,12 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Deep_Color: {r: 0.16019931, g: 0.38253924, b: 0.45283014, a: 1}
+    - _Deep_Color: {r: 0.11777139, g: 0.37260613, b: 0.4490565, a: 1}
     - _Flow_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Foam_Color: {r: 0.9386792, g: 1, b: 1, a: 1}
+    - _Foam_Color: {r: 0.93207544, g: 0.91091526, b: 0.7650053, a: 1}
     - _Foam_Scale: {r: 2, g: 2, b: 0, a: 0}
     - _Refraction_XY_Scale: {r: 1, g: 1, b: 0, a: 0}
-    - _Shallow_Color: {r: 0.41834283, g: 0.71492016, b: 0.745283, a: 0.78039217}
-    - _Specular_Color: {r: 0.7216981, g: 0.8660028, b: 1, a: 0}
+    - _Shallow_Color: {r: 0.4116553, g: 0.65004355, b: 0.6754716, a: 0.78039217}
+    - _Specular_Color: {r: 1, g: 0.8403186, b: 0.4433962, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
