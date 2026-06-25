@@ -65,27 +65,27 @@ Material:
     - _Foam_Amount: 0.6
     - _Foam_Cutoff: 1.19
     - _Foam_Speed: 0.02
-    - _Object_Color_Value: 3.41
-    - _Pixel_size: 10000
+    - _Object_Color_Value: 0.13
+    - _Pixel_size: 9999993
     - _QueueControl: 1
     - _QueueOffset: 0
     - _Refraction_Speed: 0.017
-    - _Refraction_Strength: 0.0105
-    - _Specular_Density: 148.64
+    - _Refraction_Strength: 0.0087
+    - _Specular_Density: 1227.7
     - _Specular_Speed: 2.2
-    - _Specular_Thickness: 10.4
+    - _Specular_Thickness: 18.2
     - _SrcBlend: 1
     - _Surface: 0
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Deep_Color: {r: 0.11777139, g: 0.37260613, b: 0.4490565, a: 1}
+    - _Deep_Color: {r: 0.11764706, g: 0.40858838, b: 0.4509804, a: 1}
     - _Flow_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Foam_Color: {r: 0.93207544, g: 0.91091526, b: 0.7650053, a: 1}
     - _Foam_Scale: {r: 2, g: 2, b: 0, a: 0}
     - _Refraction_XY_Scale: {r: 1, g: 1, b: 0, a: 0}
-    - _Shallow_Color: {r: 0.4116553, g: 0.65004355, b: 0.6754716, a: 0.78039217}
-    - _Specular_Color: {r: 1, g: 0.8403186, b: 0.4433962, a: 0}
+    - _Shallow_Color: {r: 0.4117647, g: 0.6745098, b: 0.63042986, a: 0.78039217}
+    - _Specular_Color: {r: 1, g: 0.89240634, b: 0.6273585, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

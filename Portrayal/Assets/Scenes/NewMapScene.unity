@@ -15,18 +15,18 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.7688679, g: 0.91888016, b: 1, a: 1}
+  m_FogColor: {r: 0.8235294, g: 0.8903724, b: 1, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
-  m_LinearFogEnd: 509.72
-  m_AmbientSkyColor: {r: 1, g: 0.9263229, b: 0.8349056, a: 1}
+  m_LinearFogEnd: 565.97
+  m_AmbientSkyColor: {r: 1, g: 0.9053174, b: 0.8352941, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.96
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 761d169c6535b8a4ea3b4e7738a1147b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 131a2ee4b5ad8d546ac21794cb948d3e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -15966,7 +15966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f503ef1ceec88b242b5b3a8b806b6f99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11151123
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f503ef1ceec88b242b5b3a8b806b6f99, type: 3}
       propertyPath: m_LocalPosition.z

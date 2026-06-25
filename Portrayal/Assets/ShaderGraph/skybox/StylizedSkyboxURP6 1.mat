@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-647209764907187500
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: StylizedSkyboxURP6 1
+  m_Shader: {fileID: -6465566751694194690, guid: b576db656d388544fb9f08950b4ea096, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_20CAF406:
+        m_Texture: {fileID: 2800000, guid: 170e5dd4535701a4fa00c58a62b05da7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3163ABF1:
+        m_Texture: {fileID: 2800000, guid: 0c15911eeb440d1438603602adee8a2d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6BA91097:
+        m_Texture: {fileID: 2800000, guid: 7693d338a92dd494589bf529b97cf3c3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_C317BDD3:
+        m_Texture: {fileID: 2800000, guid: db832d4fffaac344e841a9ea661455f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Vector1_166C34A9: 0.13
+    - Vector1_249357C1: 0.133
+    - Vector1_2CC6A532: 0.12
+    - Vector1_3B7A233E: 4.09
+    - Vector1_9BA3FBEE: 0.37
+    - Vector1_9E12CF26: 0.756
+    - Vector1_BA803F6: 0.237
+    - Vector1_D80769F7: 0
+    - Vector1_ECE38ED2: 0.24
+    - Vector1_FA4E5253: 0.73
+    - Vector1_FE797C36: 0.39
+    - _Offset_Color_Lerp: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Secondary_Clouds_Cutoff: 0.429
+    - _Secondary_Clouds_Smoothness: 0.237
+    - _Stretch_Color_Lerp: 1
+    m_Colors:
+    - Color_1EB49FED: {r: 0.46666667, g: 0.68235296, b: 1, a: 0}
+    - Color_424F81E0: {r: 0.90588236, g: 0.7647059, b: 0.62352943, a: 0}
+    - Color_68FD0CD8: {r: 0, g: 0.61960787, b: 1, a: 0}
+    - Color_83CF459: {r: 0, g: 0.003921569, b: 0.27450982, a: 0}
+    - Color_AB9D6D2F: {r: 0.41568628, g: 0.09019608, b: 1, a: 0}
+    - Color_B54BEABE: {r: 0.7647059, g: 0.6784314, b: 0.6784314, a: 0}
+    - Color_BE31CDF2: {r: 0.023529412, g: 0.18039216, b: 1, a: 0}
+    - Color_D230EFA1: {r: 0.05882353, g: 0, b: 0.3882353, a: 0}
+    - Color_E5129607: {r: 0.49019608, g: 0.3764706, b: 0.16470589, a: 0}
+    - _Cloud_Distortion_Speed_Dir: {r: 0.005, g: 0.005, b: 0, a: 0}
+    - _Cloud_Layer_Speed_Dir: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _Horizon_Clouds_Fade: {r: 2.18, g: 0.37, b: 0, a: 0}
+    - _Horizon_Color_Night: {r: 0.011764706, g: 0.08235294, b: 0.7176471, a: 0}
+    - _Moon_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Moon_Stars_Col: {r: 1, g: 1, b: 1, a: 0}
+    - _Sun_Color: {r: 1, g: 0.42614132, b: 0.26981127, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
