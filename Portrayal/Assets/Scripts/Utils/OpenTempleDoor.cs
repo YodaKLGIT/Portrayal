@@ -68,16 +68,13 @@ public class OpenTempleDoor : MonoBehaviour
     public void SetObjectOneActive()
     {
         objectOneActive = true;
-        Debug.Log("Object One Active: " + objectOneActive);
     }
     public void SetObjectTwoActive()
     {
         objectTwoActive = true;
-        Debug.Log("Object One Active: " + objectOneActive);
     }
     public void SetObjectThreeActive()
     {
         objectThreeActive = true;
-        Debug.Log("Object One Active: " + objectOneActive);
     }
 }
