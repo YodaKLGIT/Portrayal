@@ -255,7 +255,7 @@ public class PhotoCapture : MonoBehaviour
     }
 
     // remove photo
-    private void RemovePhoto()
+    public void RemovePhoto()
     {
         if (!isAnimating)
             StartCoroutine(RemoveSequence());

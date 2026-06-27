@@ -32,12 +32,6 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
-    //public void NextScene()
-    //{
-    //    SceneManager.LoadScene("01-TowerTut");
-    //    Debug.Log("Loading new scene: 01-TowerTut");
-    //}
-
     public void StartSceneTransition(string sceneName)
     {
         StartCoroutine(SmoothSceneTransition(sceneName));
