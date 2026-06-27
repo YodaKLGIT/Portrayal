@@ -45,7 +45,5 @@ public class Gallery : MonoBehaviour
 
         isGalleryOpen = !isGalleryOpen;
         isAnimating = false;
-
-        Debug.Log(isGalleryOpen ? "Gallery open" : "Gallery close");
     }
 }

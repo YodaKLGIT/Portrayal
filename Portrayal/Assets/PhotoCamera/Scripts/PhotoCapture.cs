@@ -82,7 +82,6 @@ public class PhotoCapture : MonoBehaviour
     }
 
     // capture photo
-    // capture photo
     private IEnumerator CapturePhoto()
     {
         viewingPhoto = true;
@@ -247,7 +246,7 @@ public class PhotoCapture : MonoBehaviour
         {
             if (galleryList[i] == null)
             {
-                Debug.LogWarning("Gallery slot is NULL at index " + i);
+                //Debug.LogWarning("Gallery slot is NULL at index " + i);
                 continue;
             }
 
