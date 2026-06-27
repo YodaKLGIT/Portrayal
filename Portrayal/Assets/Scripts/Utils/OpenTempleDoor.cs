@@ -14,6 +14,7 @@ public class OpenTempleDoor : MonoBehaviour
     [SerializeField] private GameObject CutsceneCam;
     [SerializeField] private PlayerCamera playerCamera;
     [SerializeField] private PhotoCapture photoCapture;
+    [SerializeField] private GameObject npc;
 
     void Update()
     {
@@ -57,6 +58,28 @@ public class OpenTempleDoor : MonoBehaviour
         }
 
         door.transform.localPosition = targetPosition;
+
+        yield return new WaitForSeconds(1f);
+
+        Vector3 npcStartPosition = npc.transform.position;
+        Vector3 npcTargetPosition = new Vector3(-3.40f, 2.60f, -40.26f); ;
+        
+
+        elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            npc.transform.position = Vector3.Lerp(
+                npcStartPosition,
+                npcTargetPosition,
+                elapsed / duration);
+
+            yield return null;
+        }
+
+        npc.transform.position = npcTargetPosition;
 
         // Keep the cutscene camera active for 2 more seconds
         yield return new WaitForSeconds(2f);
