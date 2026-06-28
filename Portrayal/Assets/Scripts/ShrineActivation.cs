@@ -16,15 +16,22 @@ public class ShrineActivation : MonoBehaviour
 
     [SerializeField] private GameObject cutsceneCamera;
 
-    private int shrinesActivated = 0;
+    [SerializeField] private int shrinesActivated = 0;
 
     private void Update()
     {
-        if (finishedAllShrines && shrinesActivated >= 3)
+        if (finishedAllShrines || shrinesActivated >= 3)
         {
-            StartEnding();
             finishedAllShrines = true;
             return;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (finishedAllShrines == true)
+        {
+            StartEnding();
         }
     }
 

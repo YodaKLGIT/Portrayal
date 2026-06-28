@@ -76,7 +76,7 @@ Material:
     - _Specular_Thickness: 18.2
     - _SrcBlend: 1
     - _Surface: 0
-    - _ZTest: 4
+    - _ZTest: 2
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
