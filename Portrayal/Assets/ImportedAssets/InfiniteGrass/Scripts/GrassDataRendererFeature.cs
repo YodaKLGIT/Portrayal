@@ -60,14 +60,28 @@ public class GrassDataRendererFeature : ScriptableRendererFeature
         public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
         {
             int textureSize = 2048;
+#pragma warning disable CS0618 // Type or member is obsolete
             RenderingUtils.ReAllocateIfNeeded(ref heightRT, new RenderTextureDescriptor(textureSize, textureSize, RenderTextureFormat.RGFloat, 0), FilterMode.Bilinear);
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
             RenderingUtils.ReAllocateIfNeeded(ref heightDepthRT, new RenderTextureDescriptor(textureSize, textureSize, RenderTextureFormat.RFloat, 32), FilterMode.Bilinear);
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
             RenderingUtils.ReAllocateIfNeeded(ref maskRT, new RenderTextureDescriptor(textureSize, textureSize, RenderTextureFormat.RFloat, 0), FilterMode.Bilinear);
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
             RenderingUtils.ReAllocateIfNeeded(ref colorRT, new RenderTextureDescriptor(textureSize, textureSize, RenderTextureFormat.ARGBFloat, 0), FilterMode.Bilinear);
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
             RenderingUtils.ReAllocateIfNeeded(ref slopeRT, new RenderTextureDescriptor(textureSize, textureSize, RenderTextureFormat.ARGBFloat, 0), FilterMode.Bilinear);
+#pragma warning restore CS0618 // Type or member is obsolete
             
+#pragma warning disable CS0618 // Type or member is obsolete
             ConfigureTarget(heightRT, heightDepthRT);
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
             ConfigureClear(ClearFlag.All, Color.black);
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         ComputeBuffer grassPositionsBuffer;
@@ -114,7 +128,9 @@ public class GrassDataRendererFeature : ScriptableRendererFeature
                 heightMapMat.SetVector("_BoundsYMinMax", new Vector2(cameraBounds.min.y, cameraBounds.max.y));
                 drawSetting.overrideMaterial = heightMapMat;
                 var filterSetting = new FilteringSettings(RenderQueueRange.all, heightMapLayer);
+#pragma warning disable CS0618 // Type or member is obsolete
                 context.DrawRenderers(renderingData.cullResults, ref drawSetting, ref filterSetting);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             cmd.SetRenderTarget(maskRT);//Change the texture we are drawing to
@@ -127,7 +143,9 @@ public class GrassDataRendererFeature : ScriptableRendererFeature
                  
                 var drawSetting = CreateDrawingSettings(new ShaderTagId("GrassMask"), ref renderingData, SortingCriteria.CommonTransparent);
                 var filterSetting = new FilteringSettings(RenderQueueRange.all);
+#pragma warning disable CS0618 // Type or member is obsolete
                 context.DrawRenderers(renderingData.cullResults, ref drawSetting, ref filterSetting);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             cmd.SetRenderTarget(colorRT);
@@ -140,7 +158,9 @@ public class GrassDataRendererFeature : ScriptableRendererFeature
 
                 var drawSetting = CreateDrawingSettings(new ShaderTagId("GrassColor"), ref renderingData, SortingCriteria.CommonTransparent);
                 var filterSetting = new FilteringSettings(RenderQueueRange.all);
+#pragma warning disable CS0618 // Type or member is obsolete
                 context.DrawRenderers(renderingData.cullResults, ref drawSetting, ref filterSetting);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             cmd.SetRenderTarget(slopeRT);
@@ -153,7 +173,9 @@ public class GrassDataRendererFeature : ScriptableRendererFeature
 
                 var drawSetting = CreateDrawingSettings(new ShaderTagId("GrassSlope"), ref renderingData, SortingCriteria.CommonTransparent);
                 var filterSetting = new FilteringSettings(RenderQueueRange.all);
+#pragma warning disable CS0618 // Type or member is obsolete
                 context.DrawRenderers(renderingData.cullResults, ref drawSetting, ref filterSetting);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             cmd.SetGlobalTexture("_GrassColorRT", colorRT);//Set the COLOR and SLOPE textures as global

@@ -32,6 +32,11 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
+    public void SimpleSceneSwitch(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void StartSceneTransition(string sceneName)
     {
         StartCoroutine(SmoothSceneTransition(sceneName));
