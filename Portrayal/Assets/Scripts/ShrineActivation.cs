@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShrineActivation : MonoBehaviour
 {
@@ -13,18 +14,13 @@ public class ShrineActivation : MonoBehaviour
 
     [SerializeField] private bool finishedAllShrines = false;
 
-    //[SerializeField] private GameObject player;
     [SerializeField] private GameObject cutsceneCamera;
 
-    //[SerializeField] private CanvasGroup FadeInImage;
-    //[SerializeField] private float fadeDuration = 1f;
-    //[SerializeField] private float displayDuration = 4f;
-
-    [SerializeField] private SceneSwitcher sceneSwitcher;
+    private int shrinesActivated = 0;
 
     private void Update()
     {
-        if (finishedAllShrines)
+        if (finishedAllShrines && shrinesActivated >= 3)
         {
             StartEnding();
             finishedAllShrines = true;
@@ -42,21 +38,24 @@ public class ShrineActivation : MonoBehaviour
     {
         cutsceneCamera.SetActive(true);
         yield return new WaitForSeconds(32.30f);
-        sceneSwitcher.SimpleSceneSwitch("EindScene");
+        SceneManager.LoadScene("EindScene");
     }
 
     public void ActivateShrineOne()
     {
         shrineOne.SetActive(true);
         GateTwo.SetActive(false);
+        shrinesActivated++;
     }
     public void ActivateShrineTwo()
     {
         shrineTwo.SetActive(true);
         GateThree.SetActive(false);
+        shrinesActivated++;
     }
     public void ActivateShrineThree()
     {
         shrineThree.SetActive(true);
+        shrinesActivated++;
     }
 }
