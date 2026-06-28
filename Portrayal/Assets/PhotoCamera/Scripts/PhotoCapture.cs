@@ -82,7 +82,6 @@ public class PhotoCapture : MonoBehaviour
     }
 
     // capture photo
-    // capture photo
     private IEnumerator CapturePhoto()
     {
         viewingPhoto = true;
@@ -155,42 +154,57 @@ public class PhotoCapture : MonoBehaviour
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(photoCamera);
         Photographable[] all = FindObjectsByType<Photographable>(FindObjectsSortMode.None);
 
+        // Create one slightly forgiving ray from the center of the camera
+        Ray cameraRay = photoCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
         foreach (var obj in all)
         {
-            Renderer rend = obj.GetComponentInChildren<Renderer>();
-            if (rend == null) continue;
+            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
 
-            // In camera view
-            if (!GeometryUtility.TestPlanesAABB(planes, rend.bounds))
+            if (renderers.Length == 0)
                 continue;
 
-            Vector3 viewportPos = photoCamera.WorldToViewportPoint(rend.bounds.center);
+            bool visible = false;
 
-            // Behind camera
-            if (viewportPos.z < 0)
-                continue;
-
-            // Center check
-            if (Mathf.Abs(viewportPos.x - 0.5f) > obj.requiredCenterAccuracy ||
-                Mathf.Abs(viewportPos.y - 0.5f) > obj.requiredCenterAccuracy)
-                continue;
-
-            // Distance check
-            float distance = Vector3.Distance(photoCamera.transform.position, rend.bounds.center);
-            if (distance > obj.maxDistance)
-                continue;
-
-            // Line of sight
-            Vector3 dir = (rend.bounds.center - photoCamera.transform.position).normalized;
-
-            if (Physics.Raycast(photoCamera.transform.position, dir, out RaycastHit hit, obj.maxDistance))
+            foreach (Renderer rend in renderers)
             {
-                var hitPhoto = hit.collider.GetComponentInParent<Photographable>();
+                // In camera view
+                if (!GeometryUtility.TestPlanesAABB(planes, rend.bounds))
+                    continue;
 
-                if (hitPhoto == obj)
+                Vector3 viewportPos = photoCamera.WorldToViewportPoint(rend.bounds.center);
+
+                // Behind camera
+                if (viewportPos.z < 0)
+                    continue;
+
+                // Center check
+                if (Mathf.Abs(viewportPos.x - 0.5f) > obj.requiredCenterAccuracy ||
+                    Mathf.Abs(viewportPos.y - 0.5f) > obj.requiredCenterAccuracy)
+                    continue;
+
+                // Distance check
+                float distance = Vector3.Distance(photoCamera.transform.position, rend.bounds.center);
+
+                if (distance > obj.maxDistance)
+                    continue;
+
+                // Slightly forgiving line of sight
+                if (Physics.SphereCast(cameraRay, 0.2f, out RaycastHit hit, obj.maxDistance))
                 {
-                    result.Add(obj);
+                    Photographable hitPhoto = hit.collider.GetComponentInParent<Photographable>();
+
+                    if (hitPhoto == obj)
+                    {
+                        visible = true;
+                        break;
+                    }
                 }
+            }
+
+            if (visible)
+            {
+                result.Add(obj);
             }
         }
 
@@ -247,7 +261,7 @@ public class PhotoCapture : MonoBehaviour
         {
             if (galleryList[i] == null)
             {
-                Debug.LogWarning("Gallery slot is NULL at index " + i);
+                //Debug.LogWarning("Gallery slot is NULL at index " + i);
                 continue;
             }
 
@@ -256,7 +270,7 @@ public class PhotoCapture : MonoBehaviour
     }
 
     // remove photo
-    private void RemovePhoto()
+    public void RemovePhoto()
     {
         if (!isAnimating)
             StartCoroutine(RemoveSequence());

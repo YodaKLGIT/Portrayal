@@ -5,7 +5,9 @@ public struct CameraInput
 }
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] private float sensitivity = 120f;
+    [SerializeField] public float sensitivity = 120f;
+    private float originalSensitivity;
+
     [SerializeField] private float minPitch = -80f;
     [SerializeField] private float maxPitch = 80f;
 
@@ -20,6 +22,10 @@ public class PlayerCamera : MonoBehaviour
     private float _bobTime;
     private Vector3 _bobOffset;
 
+    private void Awake()
+    {
+        originalSensitivity = sensitivity;
+    }
 
     public void Initialize(Transform target)
     {
@@ -75,6 +81,15 @@ public class PlayerCamera : MonoBehaviour
         }
 
         transform.position = target.position + transform.rotation * _bobOffset;
+    }
+    public void SetSensitivity(float newSensitivity)
+    {
+        sensitivity = newSensitivity;
+    }
+
+    public void ResetSensitivity()
+    {
+        sensitivity = originalSensitivity;
     }
 
 }
