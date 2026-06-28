@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ed2db1ea1c41fa343974c99ed2ee4bf0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlayerCamera: {instanceID: 0}
+  - AngelTarget: {instanceID: 0}
+  - StartingPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

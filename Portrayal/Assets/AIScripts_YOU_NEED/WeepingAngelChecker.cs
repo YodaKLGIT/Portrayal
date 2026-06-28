@@ -8,9 +8,7 @@ public class WeepingAngelChecker : MonoBehaviour
     {
         if (other.gameObject == Angel)
         {
-            Vector3 new_position = transform.position;
-            new_position.x = Spawn.transform.position.x;
-            new_position.z = Spawn.transform.position.z;
+            transform.position = new Vector3(0, 0, 0);
 
         }
     }

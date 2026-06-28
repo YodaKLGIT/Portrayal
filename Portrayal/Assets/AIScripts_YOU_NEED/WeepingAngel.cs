@@ -40,7 +40,14 @@ public class WeepingAngel : AngelChecker
 
         if (Input.GetKey(KeyCode.J))
         {
-            stage2 = true;
+            if (stage2 == true)
+            {
+                stage2 = false;
+            }
+            else
+            {
+                stage2 = true;
+            }
         }
     }
 
