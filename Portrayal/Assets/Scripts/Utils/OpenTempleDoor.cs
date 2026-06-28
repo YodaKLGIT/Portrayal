@@ -26,6 +26,7 @@ public class OpenTempleDoor : MonoBehaviour
         if (objectOneActive && objectTwoActive && objectThreeActive && !isOpen)
         {
             isOpen = true;
+            npc.SetActive(true);
             SlideDoor();
         }
     }
