@@ -56,7 +56,7 @@ Material:
     - _Color: {r: 0.21686715, g: 0.7186503, b: 0.80377346, a: 0}
     - _dissolvespeed: {r: 0, g: -0.5, b: 0, a: 0}
     - _distortionspeed: {r: 0, g: -0.5, b: 0, a: 0}
-    - _firecolor: {r: 0.2895584, g: 1.1668556, b: 3.4566042, a: 0}
+    - _firecolor: {r: 0.76083, g: 3.0659745, b: 9.08241, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5713061012932745105
