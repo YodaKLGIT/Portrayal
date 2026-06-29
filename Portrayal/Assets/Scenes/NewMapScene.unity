@@ -11037,7 +11037,7 @@ PrefabInstance:
     - target: {fileID: 4615585685708020160, guid: b2e6a5efd6670674aaf8106e8322433c, type: 3}
       propertyPath: AngelTarget
       value: 
-      objectReference: {fileID: 6162999785180641053}
+      objectReference: {fileID: 7990173809777582662}
     - target: {fileID: 4615585685708020160, guid: b2e6a5efd6670674aaf8106e8322433c, type: 3}
       propertyPath: PlayerCamera
       value: 
@@ -22020,7 +22020,7 @@ PrefabInstance:
     - target: {fileID: 4615585685708020160, guid: b2e6a5efd6670674aaf8106e8322433c, type: 3}
       propertyPath: AngelTarget
       value: 
-      objectReference: {fileID: 3162961723220524813}
+      objectReference: {fileID: 7990173809777582662}
     - target: {fileID: 4615585685708020160, guid: b2e6a5efd6670674aaf8106e8322433c, type: 3}
       propertyPath: PlayerCamera
       value: 
@@ -62944,7 +62944,7 @@ PrefabInstance:
     - target: {fileID: 4615585685708020160, guid: b2e6a5efd6670674aaf8106e8322433c, type: 3}
       propertyPath: AngelTarget
       value: 
-      objectReference: {fileID: 6162999785180641053}
+      objectReference: {fileID: 7990173809777582662}
     - target: {fileID: 4615585685708020160, guid: b2e6a5efd6670674aaf8106e8322433c, type: 3}
       propertyPath: PlayerCamera
       value: 

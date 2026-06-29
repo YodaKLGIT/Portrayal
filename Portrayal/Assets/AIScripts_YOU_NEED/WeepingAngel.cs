@@ -9,7 +9,7 @@ public class WeepingAngel : AngelChecker
     private NavMeshAgent agent;
     public GameObject AngelTarget;
     [SerializeField] private GameObject StartingPoint;
-    private bool stage2 = false;
+    private bool stage2 = true;
     private bool Smoving;
     
     void Start()
@@ -18,9 +18,24 @@ public class WeepingAngel : AngelChecker
     }
     
     void Update()
+    { 
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            if (stage2 == true)
+            {
+                stage2 = false;
+            }
+            else
+            {
+                stage2 = true;
+            }
+        }
+    }
+    public void AngelsAwake()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(PlayerCamera);
-        if(GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
+        if (GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
         {
             agent.speed = 0f;
             Smoving = false;
@@ -37,20 +52,7 @@ public class WeepingAngel : AngelChecker
                 ReturnToSpawn();
             }
         }
-
-        if (Input.GetKey(KeyCode.J))
-        {
-            if (stage2 == true)
-            {
-                stage2 = false;
-            }
-            else
-            {
-                stage2 = true;
-            }
-        }
     }
-
     void Moving()
     {
         agent.SetDestination(AngelTarget.transform.position);
