@@ -1,14 +1,14 @@
 using UnityEngine;
-using UnityEditor;
 using System.IO;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class TerrainPathMaskBaker : MonoBehaviour
 {
     public Terrain terrain;
-
     [Header("Your Path Layer Index")]
     public int pathLayer = 2;
-
     [Header("Output")]
     public string fileName = "GrassMask.png";
 
@@ -22,10 +22,8 @@ public class TerrainPathMaskBaker : MonoBehaviour
         }
 
         TerrainData data = terrain.terrainData;
-
         int width = data.alphamapWidth;
         int height = data.alphamapHeight;
-
         float[,,] splat = data.GetAlphamaps(0, 0, width, height);
 
         Texture2D maskTex = new Texture2D(width, height, TextureFormat.RGBA32, false);
@@ -34,30 +32,22 @@ public class TerrainPathMaskBaker : MonoBehaviour
         {
             for (int x = 0; x < width; x++)
             {
-                // Path strength (0 = no path, 1 = full path)
                 float pathValue = splat[y, x, pathLayer];
-
-                // Convert path -> grass mask
                 float mask = 1f - pathValue;
-
                 mask = Mathf.Clamp01(mask);
-
-                // Optional: sharpen edges a bit (makes paths cleaner)
                 mask = Mathf.Pow(mask, 1.5f);
-
                 maskTex.SetPixel(x, y, new Color(mask, mask, mask, 1));
             }
         }
 
         maskTex.Apply();
-
         byte[] png = maskTex.EncodeToPNG();
-
         string path = Path.Combine(Application.dataPath, fileName);
         File.WriteAllBytes(path, png);
-
         Debug.Log("Grass mask saved to: " + path);
 
+#if UNITY_EDITOR
         AssetDatabase.Refresh();
+#endif
     }
 }
