@@ -6,10 +6,9 @@ public class WeepingAngelChecker : MonoBehaviour
     [SerializeField] private GameObject Spawn;
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Angel)
+        if (other.GetComponentInParent<WeepingAngel>() != null)
         {
-            transform.position = new Vector3(0, 0, 0);
-
+            transform.position = Vector3.zero;
         }
     }
 }

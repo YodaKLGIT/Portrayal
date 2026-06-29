@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Linq;
-using Unity.VisualScripting;
 
 public class WeepingAngel : AngelChecker
 {
@@ -10,60 +8,56 @@ public class WeepingAngel : AngelChecker
     public GameObject AngelTarget;
     [SerializeField] private GameObject StartingPoint;
     private bool stage2 = true;
-    private bool Smoving;
-    
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
     }
-    
-    void Update()
-    { 
 
-        if (Input.GetKey(KeyCode.J))
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            if (stage2 == true)
-            {
-                stage2 = false;
-            }
-            else
-            {
-                stage2 = true;
-            }
+            stage2 = !stage2;
         }
     }
+
     public void AngelsAwake()
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(PlayerCamera);
-        if (GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
+        bool inView = GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
+
+        if (inView)
         {
-            agent.speed = 0f;
-            Smoving = false;
+         
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero; 
         }
-        if (!GeometryUtility.TestPlanesAABB(planes, this.gameObject.GetComponent<Renderer>().bounds))
+        else
         {
+            agent.isStopped = false;
             agent.speed = 3f;
-            if (stage2 == true)
-            {
+
+            if (stage2)
                 Moving();
-            }
             else
-            {
                 ReturnToSpawn();
-            }
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.transform.position = Vector3.zero;
         }
     }
     void Moving()
     {
         agent.SetDestination(AngelTarget.transform.position);
-        Smoving = true;
     }
 
     void ReturnToSpawn()
     {
         agent.SetDestination(StartingPoint.transform.position);
     }
-   
 }
-
-//Make 2 triggers one for if the angel touches the player the other too make sur4e4 they don't leave the Maze.
